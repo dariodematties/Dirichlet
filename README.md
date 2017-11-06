@@ -1,7 +1,7 @@
 # Project Title
 
 This project counts on all the code for generating and plotting Dirichlet distributions and their related processes.
-All the code is in: [GNU Octave](http://www.dropwizard.io/1.0.2/docs/) programming language for scientific computing.
+All the code is in: [GNU Octave](https://www.gnu.org/software/octave/) programming language for scientific computing.
 
 ## Getting Started
 
@@ -14,9 +14,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Since the code in this repository is written in [GNU Octave](http://www.dropwizard.io/1.0.2/docs/)
+Since the code in this repository is written in [GNU Octave](https://www.gnu.org/software/octave/)
 which is an interpreted language, you won't need to compile the soft in order to run it.
-To run this soft you need to have [GNU Octave](http://www.dropwizard.io/1.0.2/docs/) installed
+To run this soft you need to have [GNU Octave](https://www.gnu.org/software/octave/) installed
 in your machine and [statistics package](https://octave.sourceforge.io/statistics/index.html).
 That's all.
 
@@ -26,11 +26,11 @@ This repository has a function called Dirichlet\_plots which
 produces plots of Beta and Dirichlet distribution with parameter
 \alpha.
 ```
-Dirichlet\_plots([1 1 1])
-Dirichlet\_plots([10 10 10])
-Dirichlet\_plots([10 10 10])
-Dirichlet\_plots([2 5 25])
-Dirichlet\_plots([0.2 0.2 0.2])
+Dirichlet_plots([1 1 1])
+Dirichlet_plots([10 10 10])
+Dirichlet_plots([10 10 10])
+Dirichlet_plots([2 5 25])
+Dirichlet_plots([0.2 0.2 0.2])
 ```
 The Beta distribution takes the two first
 components from \alpha
@@ -39,11 +39,11 @@ In order to generate plots from Dirichlet samples generated from the soft
 we can use Polya's method in the following way:
 
 ```
-octave:14> tic(); Plot\_Dir\_dist\_points([10 10 10]',"polya",50,10); toc()
+octave:14> tic(); Plot_Dir_dist_points([10 10 10]',"polya",50,10); toc()
 Elapsed time is 1.09946 seconds.
-octave:15> figure; tic(); Plot\_Dir\_dist\_points([10 10 10]',"polya",50,100); toc()
+octave:15> figure; tic(); Plot_Dir_dist_points([10 10 10]',"polya",50,100); toc()
 Elapsed time is 10.6354 seconds.
-octave:16> figure; tic(); Plot\_Dir\_dist\_points([10 10 10]',"polya",50,1000); toc()
+octave:16> figure; tic(); Plot_Dir_dist_points([10 10 10]',"polya",50,1000); toc()
 Elapsed time is 90.3149 seconds.
 octave:17> close all
 octave:18>
