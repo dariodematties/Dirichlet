@@ -8,7 +8,7 @@ All the code is in: [GNU Octave](http://www.dropwizard.io/1.0.2/docs/) programmi
 In order to obtain the code of the project in your local machine,
 type git clone, and then paste the URL you copied from this repository.
 
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+$ git clone https://github.com/dariodematties/Dirichlet.git
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
