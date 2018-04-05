@@ -11,3 +11,6 @@ octave-workspace
 
 # Swap files from vim editor
 *.swp
+
+# Python generated files
+__pycache__
