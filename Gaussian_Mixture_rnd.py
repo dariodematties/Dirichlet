@@ -37,11 +37,16 @@
 #					samples.shape
 #					(n,f)
 
-# Examples:
-#
-#	Stick_breaking_process(10,1)
-#
-#	1   2   3   4   1   3   4   3   1   1
+'''
+Use example:
+
+n = 10000
+w = np.array([0.1,0.6,0.05,0.25])
+mean = np.array([[0,0],[4,4],[4,1],[1,4]])
+cov = np.array([[[5,0],[0,1]],[[4,0],[0,10]],[[2,1],[1,2]],[[2,-1],[-1,2]]])
+
+samples, labels = Gaussian_Mixture_rnd.Gaussian_Mixture_rnd(n, w, mean, cov)
+'''
 
 import numpy as np
 
