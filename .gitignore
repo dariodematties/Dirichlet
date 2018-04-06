@@ -14,3 +14,6 @@ octave-workspace
 
 # Python generated files
 __pycache__
+
+# Matlab/Octave .mat files
+*.mat
