@@ -55,11 +55,11 @@ def Gaussian_Mixture_rnd(n, w, mean, cov):
        (type(w) is not np.ndarray) or \
        (type(mean) is not np.ndarray) or \
        (type(cov) is not np.ndarray) :
-        print("In function Generate_Training_Data: n is not int or "\
+        print("In function Gaussian_Mixture_rnd: n is not int or "\
               "w is not numpy array or "\
               "mean is not numpy array or "\
               "cov is not numpy array")
-        raise ValueError('Generate_Training_Data error')
+        raise ValueError('Gaussian_Mixture_rnd error')
     
     if (len(w.shape) is not 1) or \
        (len(mean.shape) is not 2) or \
@@ -70,11 +70,11 @@ def Gaussian_Mixture_rnd(n, w, mean, cov):
        (mean.shape[1] is not cov.shape[2]) or \
        (mean.shape[0] is 0) or \
        (mean.shape[1] is 0) :
-        print("In function Generate_Training_Data:"\
+        print("In function Gaussian_Mixture_rnd:"\
               "w has not a correct shape or "\
               "mean has not a correct shape or "\
               "cov has not a correct shape")
-        raise ValueError('Generate_Training_Data error')
+        raise ValueError('Gaussian_Mixture_rnd error')
 
     I = np.array(range(w.size))
     choices = np.random.choice(I, n, p=w)
