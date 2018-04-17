@@ -33,10 +33,10 @@ Dirichlet_plots([2 5 25])
 Dirichlet_plots([0.2 0.2 0.2])
 ```
 
-![alt text](https://raw.githubusercontent.com/dariodematties/Dirichlet/images/dist1.jpg)
-![alt text](https://raw.githubusercontent.com/dariodematties/Dirichlet/images/dist2.jpg)
-![alt text](https://raw.githubusercontent.com/dariodematties/Dirichlet/images/dist3.jpg)
-![alt text](https://raw.githubusercontent.com/dariodematties/Dirichlet/images/dist4.jpg)
+![alt text](./images/dist1.jpg)
+![alt text](./images/dist2.jpg)
+![alt text](./images/dist3.jpg)
+![alt text](./images/dist4.jpg)
 
 
 The Beta distribution takes the two first
