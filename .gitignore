@@ -17,3 +17,7 @@ __pycache__
 
 # Matlab/Octave .mat files
 *.mat
+
+# Those are temporary files created by the vim editor.
+*.swo
+*.swp
