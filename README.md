@@ -83,6 +83,12 @@ Elapsed time is 11.8098 seconds.
 octave:67> tic(), Plot_Dir_proc_points(1000,"chinese",10000); toc()
 Elapsed time is 11.072 seconds.
 ```
+
+![alt text](./images/chinese1.jpg)
+![alt text](./images/chinese2.jpg)
+![alt text](./images/chinese3.jpg)
+![alt text](./images/chinese4.jpg)
+
 If you want to plot the statistics generated from a realization from
 the Dirichlet process by means of the Polya's urn process
 you can run the following lines.
@@ -109,6 +115,13 @@ octave:75> tic(); Plot_Dir_proc_points(1000,"polya",10000,random_color); toc()
 Elapsed time is 12.299 seconds.
 
 ```
+
+![alt text](./images/polyaurn1.jpg)
+![alt text](./images/polyaurn2.jpg)
+![alt text](./images/polyaurn3.jpg)
+![alt text](./images/polyaurn4.jpg)
+
+
 In order to generate plots of realizations from the Dirichlet process from
 the stick-breakng method you have to type the following lines of script code.
 
@@ -127,5 +140,7 @@ octave:132> tic(); Plot_Dir_proc_points(12,"stick",50); toc()
 Elapsed time is 0.217011 seconds.
 octave:133>
 ```
+
+![alt text](./images/stickbreaking.jpg)
 
 
