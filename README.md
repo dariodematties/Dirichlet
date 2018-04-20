@@ -18,6 +18,8 @@ Since the code in this repository is written in [GNU Octave](https://www.gnu.org
 which is an interpreted language, you won't need to compile the soft in order to run it.
 To run this soft you need to have [GNU Octave](https://www.gnu.org/software/octave/) installed
 in your machine and [statistics package](https://octave.sourceforge.io/statistics/index.html).
+You also need to have [python3](https://www.python.org/download/releases/3.0/) and the following packages:
+numpy, scipy.io, matplotlib.pyplot and from scipy, spatial. 
 That's all.
 
 ## Running the tests
@@ -123,7 +125,7 @@ Elapsed time is 12.299 seconds.
 
 
 In order to generate plots of realizations from the Dirichlet process from
-the stick-breakng method you have to type the following lines of script code.
+the stick-breaking method you have to type the following lines of script code.
 
 ```
 octave:125> subplot(2,2,1)
@@ -144,3 +146,36 @@ octave:133>
 ![alt text](./images/stickbreaking.jpg)
 
 
+## Running Clustering Experiments
+
+In the file Test.py make:
+
+```
+numberOfTests = 1
+numberOfSamples = 1000
+addingNoise = True
+plotSamples = True
+sparsity = 0.99
+
+numberOfProcesses = 1
+numberOfDimensions = 2
+alpha = 1000.0
+
+randomness = True
+``` 
+
+and let everything else as it is.
+
+Then run the following command:
+
+```
+python3 Test.py
+```
+
+and you will see the following plots:
+
+![alt text](./images/TrainingData.png)
+![alt text](./images/InferenceData.png)
+![alt text](./images/TestingData.png)
+![alt text](./images/NoisySamples.png)
+![alt text](./images/DP_Clustering.png)

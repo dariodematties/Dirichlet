@@ -21,3 +21,4 @@ __pycache__
 # Those are temporary files created by the vim editor.
 *.swo
 *.swp
+*.swn
