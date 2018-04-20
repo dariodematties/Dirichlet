@@ -7,21 +7,21 @@ import SelfOrganizingMap
 numberOfTests = 5
 numberOfDimensions = 2
 dim = 32
-unitsArrayDimensionality = np.array([dim,dim,4])
+unitsArrayDimensionality = np.array([dim,dim])
 
 
 numberOfSamples = 1000
 addingNoise = True
 plotSamples = True
-sparsity = 0.95
+sparsity = 0.99
 
 gg.Generate_Samples(plotSamples,numberOfTests,numberOfSamples)
 
 if addingNoise :
-    nn.Add_Noise(plotSamples,2.0)
+    nn.Add_Noise(plotSamples,4.0)
 
 randomness = True
-iterations = 1
+iterations = 10
 for test in range(0,numberOfTests):
 
     print('Creatin SOM object for test number ' + str(test))

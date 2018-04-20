@@ -6,7 +6,7 @@ import Generate_Samples as gg
 import Add_Noise as nn
 import Dirichlet_Process_Clustering as dp
 
-numberOfTests = 1
+numberOfTests = 5
 numberOfSamples = 1000
 addingNoise = True
 plotSamples = True
@@ -15,7 +15,7 @@ sparsity = 0.99
 gg.Generate_Samples(plotSamples,numberOfTests,numberOfSamples)
 
 if addingNoise :
-    nn.Add_Noise(plotSamples,2.0)
+    nn.Add_Noise(plotSamples,4.0)
 
 numberOfProcesses = 1
 numberOfDimensions = 2
