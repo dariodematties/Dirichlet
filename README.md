@@ -20,6 +20,8 @@ To run this soft you need to have [GNU Octave](https://www.gnu.org/software/octa
 in your machine and [statistics package](https://octave.sourceforge.io/statistics/index.html).
 You also need to have [python3](https://www.python.org/download/releases/3.0/) and the following packages:
 numpy, scipy.io, matplotlib.pyplot and from scipy, spatial. 
+In order to perform classification tests with Support Vector Machine, you will need to install a package called
+[libsvm](https://www.csie.ntu.edu.tw/~cjlin/libsvm/) in your machine.
 That's all.
 
 ## Running the tests
@@ -179,3 +181,58 @@ and you will see the following plots:
 ![alt text](./images/TestingData.png)
 ![alt text](./images/NoisySamples.png)
 ![alt text](./images/DP_Clustering.png)
+
+
+In order to run the clustering processes by means of
+[Self Organizing Maps](https://en.wikipedia.org/wiki/Self-organizing_map),
+run the following command.
+
+```
+python3 SelfOrganizingMapTest.py
+```
+
+Then you can plot the lattice map by means of:
+
+```
+octave --no-gui
+```
+and then,
+```
+PlotSelfOrganizingMap
+```
+This program is very bad coded. It is not correctly vectorized, as a result
+it could take a long period of time to plot the map.
+
+The plot you should obtain is:
+
+![alt text](./images/SOM_Clustering.png)
+
+
+When you want to perform classification tests, be sure to delete all .mat remainder files before
+and then run the codes Test.py or SelfOrganizingMapTest.py with
+the variable numberOfTests equal to the number of files you want to analyze.
+Then run:
+
+```
+octave --no-gui
+```
+then
+
+
+```
+libsvm_train(0)
+```
+for linear kernels or
+
+```
+libsvm_train(2)
+```
+for a non-linear special kind of kernel (see [libsvm documentations](https://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf)).
+
+Finally run
+
+```
+libsvm_test()
+```
+
+Such tests will average the accuracy through the number of tests (sample files).
