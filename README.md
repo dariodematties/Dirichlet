@@ -1,7 +1,7 @@
 # Dirichlet Distribution and its Processes
 
 This project counts on all the code for generating and plotting Dirichlet distributions and their related processes.
-All the code is in: [GNU Octave](https://www.gnu.org/software/octave/) programming language for scientific computing.
+All the code is in: [Python 3](https://www.python.org/download/releases/3.0/) and [GNU Octave](https://www.gnu.org/software/octave/) programming language for scientific computing.
 
 ## Getting Started
 
