@@ -236,3 +236,30 @@ libsvm_test()
 ```
 
 Such tests will average the accuracy through the number of tests (sample files).
+
+## Other Clustering Method you may try is the Growing Neural Gas.
+
+Run
+```
+python3 GrowingNeuralGasTest.py
+```
+and you will obtain the following plots.
+
+This is the initial configuration of the network.
+
+![alt text](./images/GNG_Clustering0.png)
+
+After training we have.
+
+![alt text](./images/GNG_Clustering1.png)
+
+Zooming in...
+
+![alt text](./images/GNG_Clustering2.png)
+
+Zooming in again...
+
+![alt text](./images/GNG_Clustering3.png)
+
+
+
