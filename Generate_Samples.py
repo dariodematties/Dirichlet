@@ -53,6 +53,10 @@ def Generate_Samples(plotDistributions, numberOfFiles, numberOfSamples):
     mean = np.array([[0,0],[8,8],[2.5,5],[5,-2],[-3,6]])
     cov = np.array([[[5,0],[0,1]],[[4,0],[0,10]],[[2,1],[1,2]],[[2,-1],[-1,2]],[[2,-3],[1,2]]])
 
+    #w = np.array([0.2,0.2,0.1,0.3,0.2])
+    #mean = np.array([[0,10],[28,38],[22.25,5],[5,-2],[-33,46]])
+    #cov = np.array([[[5,0],[0,1]],[[4,0],[0,10]],[[2,1],[1,2]],[[2,-1],[-1,2]],[[2,-3],[1,2]]])
+
     for i in range(0,numberOfFiles):
         # Generate training data
         samples, labels = gmm.Gaussian_Mixture_rnd(100*n, w, mean, cov)

@@ -11,15 +11,15 @@ numberOfDimensions = 2
 numberOfSamples = 1000
 addingNoise = True
 plotSamples = True
-sparsity = 0.95
+sparsity = 0.99
 
 gg.Generate_Samples(plotSamples,numberOfTests,numberOfSamples)
 
 if addingNoise :
-    nn.Add_Noise(plotSamples,2.0)
+    nn.Add_Noise(plotSamples,4.0)
 
 randomness = True
-iterations = 1
+iterations = 10
 initialNumberOfUnits = 10
 initialNumberOfLinks = 5
 weightSpan = 1.0
@@ -46,11 +46,43 @@ for test in range(0,numberOfTests):
             GNG.learning(samples[row])
 
 
-    if plotSamples:
+    if plotSamples and test == 0:
         GNG.plotNeuralGas()
 
 
 
+
+
+
+    # Generate Inference data
+    print('\n')
+    print('Generating inference data ' + str(test))
+    SDRs, tags = GNG.inference('Inference_Data' + str(test), randomness, sparsity)
+
+    print('Saving inference output ' + str(test))
+    
+    data = {'SDRs': SDRs,\
+            'tags': tags}
+    
+    fileName = 'Inference_Output_Data'
+    sio.savemat('./' + fileName + str(test), {'data': data})
+    print('Inference output data ' + str(test) + ' saved')
+
+
+
+    # Generate Testing data
+    print('\n')
+    print('Generating testing data ' + str(test))
+    SDRs, tags = GNG.inference('Testing_Data' + str(test), randomness, sparsity)
+
+    print('Saving testing output ' + str(test))
+    
+    data = {'SDRs': SDRs,\
+            'tags': tags}
+    
+    fileName = 'Testing_Output_Data'
+    sio.savemat('./' + fileName + str(test), {'data': data})
+    print('Testing output data ' + str(test) + ' saved')
 
 
 if plotSamples:

@@ -68,7 +68,7 @@ class   GrowingNeuralGas:
 
         self.__eb = 0.2
         self.__en = 0.006
-        self.__lambda = 200
+        self.__lambda = 100
         self.__alpha = 0.5
         self.__d = 0.995
         self.__amax = 50
@@ -109,11 +109,11 @@ class   GrowingNeuralGas:
 	# 1. Generate an input signal E according to P(E). This sample is in inputVector
         if (type(inputVector) is not np.ndarray) :
             print("GrowingNeuralGas object inconsistence: inputVector is not numpy array")
-            raise ValueError('GrowingNeuralGas error in member function getResponse')
+            raise ValueError('GrowingNeuralGas error in member function learning')
 
         if not (inputVector.size == self.__inputDimensionality) :
                 print("GrowingNeuralGas object inconsistence: inputVector.size != __inputDimensionality")
-                raise ValueError('GrowingNeuralGas error in member function getResponse')
+                raise ValueError('GrowingNeuralGas error in member function learning')
 
 
 	# 2. Find the nearest unit s1 and the second-nearest unit s2. 
@@ -252,4 +252,96 @@ class   GrowingNeuralGas:
         self.__unitErrors[-1] = self.__unitErrors[q_index]
 
 
+
+
+
+
+
+
+
+
+
+    def getResponse(self, inputVector) :
+        if (type(inputVector) is not np.ndarray) :
+            print("GrowingNeuralGas object inconsistence: inputVector is not numpy array")
+            raise ValueError('GrowingNeuralGas error in member function getResponse')
+
+        if not (inputVector.size == self.__inputDimensionality) :
+                print("GrowingNeuralGas object inconsistence: inputVector.size != __inputDimensionality")
+                raise ValueError('GrowingNeuralGas error in member function getResponse')
+    
+        distances = np.sum(np.abs(self.__weights - np.tile(inputVector,(self.__units.size,1)))**2,axis=-1)**(1/2)
+        return distances, np.argsort(distances)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    def inference(self, fileName, randomness, sparsity) :
+        if (type(sparsity) is not float) :
+            print("GrowingNeuralGas object inconsistence: sparsity is not float")
+            raise ValueError('GrowingNeuralGas error in member function inference')
+
+        if (sparsity < 0) or (sparsity >= 1) :
+            print("GrowingNeuralGas object inconsistence: sparsity must be between 0 and 1")
+            raise ValueError('GrowingNeuralGas error in member function inference')
+
+        if (type(fileName) is not str) :
+            print("GrowingNeuralGas object inconsistence: fileName is not str")
+            raise ValueError('GrowingNeuralGas error in member function inference')
+
+        if (type(randomness) is not bool) :
+            print("GrowingNeuralGas object inconsistence: ransomness is not bool")
+            raise ValueError('GrowingNeuralGas error in member function inference')
+
+        a = sio.loadmat(fileName)
+        samples = a['data'][0][0]['samples']
+        if (len(samples.shape) != 2) :
+            print("GrowingNeuralGas object inconsistence: len(samples.shape) != 2")
+            raise ValueError('GrowingNeuralGas error in member function inference')
+
+        if (samples.shape[1] != self.__inputDimensionality) :
+            print("GrowingNeuralGas object inconsistence: samples.shape[1] != self.__inputDimensionality")
+            raise ValueError('GrowingNeuralGas error in member function inference')
+
+        labels = a['data'][0][0]['labels']
+        if (len(labels.shape) != 2) :
+            print("GrowingNeuralGas object inconsistence: len(labels.shape) != 2")
+            raise ValueError('GrowingNeuralGas error in member function inference')
+
+        if (labels.shape[0] != 1) or (labels.shape[1] != samples.shape[0]) :
+            print("GrowingNeuralGas object inconsistence: labels.shape[0] != 1 or " \
+                                                          "labels.shape[1] != samples.shape[0]")
+            raise ValueError('GrowingNeuralGas error in member function inference')
+
+        a = None
+
+        outputs = np.zeros((samples.shape[0],self.__units.size), dtype=bool)
+        for i in range(0,samples.shape[0]):
+            distances, indexes = self.getResponse(samples[i])
+            predisposition = np.reciprocal(distances)
+ 
+            if randomness:
+                 predisposition = predisposition**1
+                 activeUnits = np.unique(np.random.choice(self.__units.size, np.int((1.0-sparsity)*self.__units.size), p=predisposition/np.sum(predisposition)))
+            else:
+                 activeUnits = np.argsort(predisposition)[0:np.int((1.0-sparsity)*self.__units.size)]
+
+            np.put(outputs[i],activeUnits,True)
+
+        return outputs, labels
 
